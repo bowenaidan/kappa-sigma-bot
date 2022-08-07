@@ -1,0 +1,27 @@
+{
+    "name": "kappa-sigma-bot",
+    "version": "0.0.1",
+    "description": "A bot made for groupme",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "director": "",
+        "mongodb": "",
+        "xlsx": "^0.18.5"
+    },
+    "engines": {
+        "node": ">= 0.6.0",
+        "npm": ">= 1.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.heroku.com/kappa-sigma-bot.git"
+    },
+    "keywords": [
+        "node",
+        "groupme"
+    ],
+    "license": "MIT"
+}
