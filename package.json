@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://git.heroku.com/kappa-sigma-bot.git"
+        "url": "https://github.com/bowenaidan/kappa-sigma-bot.git"
     },
     "keywords": [
         "node",
