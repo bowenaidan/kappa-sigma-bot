@@ -36,7 +36,7 @@ function respond() {
 
 var fs = require("fs");
 
-//var text = fs.readFileSync("./insults.txt").toString('utf-8');
+var text = fs.readFileSync("./insults.txt").toString('utf-8');
 var textByLine = text.split("\n")
 
 const reader = require('xlsx');
