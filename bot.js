@@ -52,7 +52,8 @@ function postMessage(commandNumber) {
   }
   else if(commandNumber == 3)
   {
-    const d = new Date() -18000000;
+    const d = new Date();
+    d.toLocaleString('en-US', { timeZone: 'America/Chicago' });
     let month;
     month = d.getMonth() + 1;
     let day;
