@@ -52,7 +52,7 @@ function postMessage(commandNumber) {
   }
   else if(commandNumber == 3)
   {
-    const d = new Date();
+    const d = new Date() -18000000;
     let month;
     month = d.getMonth() + 1;
     let day;
