@@ -4,19 +4,13 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       helloCheck = /^\/hello$/;
-//      fruiter = /^\/insult$/;
       dateCheck = /^\/date$/;
       soberMonitor = /^\/sober monitor$/;
   if(request.text && helloCheck.test(request.text)) {
     this.res.writeHead(200);
     postMessage(1);
     this.res.end();
-  }/*
-  else if(request.text && fruiter.test(request.text)) {
-    this.res.writeHead(200);
-    postMessage(2);
-    this.res.end();
-  }*/
+  }
   else if(request.text && dateCheck.test(request.text)) {
     this.res.writeHead(200);
     postMessage(3);
@@ -35,10 +29,7 @@ function respond() {
 }
 
 var fs = require("fs");
-/*
-var text = fs.readFileSync("./insults.txt").toString('utf-8');
-var textByLine = text.split("\n")
-*/
+
 const reader = require('xlsx');
 
 function postMessage(commandNumber) {
@@ -58,17 +49,7 @@ function postMessage(commandNumber) {
       "bot_id" : botID,
       "text" : botResponse
     };
-  }/*
-  else if(commandNumber == 2)
-  {
-    let insultNumber = Math.floor(Math.random() * textByLine.length);
-    botResponse = "Ethan Goldstein is a " + textByLine[insultNumber];
-    console.log(botResponse);
-    body = {
-      "bot_id" : botID,
-      "text" : botResponse
-    };
-  }*/
+  }
   else if(commandNumber == 3)
   {
     const d = new Date();
