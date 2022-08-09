@@ -41,7 +41,7 @@ function postMessage(commandNumber) {
     method: 'POST'
   };
 
-  if(commandNumber == 1)
+  if(commandNumber == 1) //basic hello world test to make sure bot is listening
   {
     botResponse = "Hello";
     console.log(botResponse);
@@ -74,17 +74,16 @@ function postMessage(commandNumber) {
     const d = new Date();
     let month = d.getMonth() + 1;
     let day = d.getDate();
-    let day_of_week = d.getDay();
     let hour = d.getHours();
     if(hour >= 0 && hour <= 5) //checks if we need to change the returned date to account for the time zone
     {
       day = day-1;
     }
-    const file = reader.readFile('./sobermonitors.xlsx');
+    const file = reader.readFile('./sobermonitors.xlsx'); //reads the spreadsheet
     let data = [];
     const sheets = file.SheetNames;
 
-    for(let i = 0; i < sheets.length; i++)
+    for(let i = 0; i < sheets.length; i++) //converts the spreadsheet to something it can pull data from
     {
       const temp = reader.utils.sheet_to_json(
           file.Sheets[file.SheetNames[i]])
@@ -98,16 +97,16 @@ function postMessage(commandNumber) {
     let date_index = -1;
     for(let i = 0; i < data.length; i++)
     {
-      if(data[i].Month == month && data[i].Day == day)
+      if(data[i].Month == month && data[i].Day == day) //checks if the current date matches a date in the spreadsheet
       {
         date_index = i;
       }
     }
-    if(date_index != -1)
+    if(date_index != -1)  //returns the sober monitors if true
     {
       botResponse = "Sober monitors today are " + data[date_index].Name_1.toString() +  ", " + data[date_index].Name_2.toString() +  ", and " + data[date_index].Name_3.toString();
     }
-    else
+    else //and this message if false
     {
       botResponse = "There are no sober monitors today.";
     }
