@@ -75,6 +75,7 @@ function postMessage(commandNumber) {
     let month = d.getMonth() + 1;
     let day = d.getDate();
     let day_of_week = d.getDay();
+    let hour = d.getHours();
     if(hour >= 0 && hour <= 5) //checks if we need to change the returned date to account for the time zone
     {
       day = day-1;
