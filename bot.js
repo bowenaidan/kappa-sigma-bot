@@ -50,19 +50,19 @@ function postMessage(commandNumber) {
       "text" : botResponse
     };
   }
-  else if(commandNumber == 3)
+  else if(commandNumber == 3) //this function tests that the date returns the correct values
   {
-    const d = new Date();
+    const d = new Date(); //creates a new date object "d"
     let hour = d.getHours();
     let month;
     month = d.getMonth() + 1;
     let day;
     day = d.getDate();
-    if(hour >= 0 && hour <= 5)
+    if(hour >= 0 && hour <= 5) //checks if we need to change the returned date to account for the time zone
     {
       day = day-1;
     }
-    botResponse = month.toString() + "/" + day.toString();
+    botResponse = month.toString() + "/" + day.toString(); //returns in month/day format
     console.log(botResponse);
     body = {
       "bot_id" : botID,
@@ -75,6 +75,10 @@ function postMessage(commandNumber) {
     let month = d.getMonth() + 1;
     let day = d.getDate();
     let day_of_week = d.getDay();
+    if(hour >= 0 && hour <= 5) //checks if we need to change the returned date to account for the time zone
+    {
+      day = day-1;
+    }
     const file = reader.readFile('./sobermonitors.xlsx');
     let data = [];
     const sheets = file.SheetNames;
