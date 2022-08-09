@@ -53,11 +53,15 @@ function postMessage(commandNumber) {
   else if(commandNumber == 3)
   {
     const d = new Date();
-    d.toLocaleString('en-US', { timeZone: 'America/Chicago' });
+    let hour = d.getHours();
     let month;
     month = d.getMonth() + 1;
     let day;
     day = d.getDate();
+    if(hour >= 0 && hour <= 5)
+    {
+      day = day-1;
+    }
     botResponse = month.toString() + "/" + day.toString();
     console.log(botResponse);
     body = {
